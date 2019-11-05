@@ -1,0 +1,10 @@
+đặt phòng khách sạn:
+ - check availability
+
+ng dùng đang sử dụng dịch vụ phòng
+ - có thể sử dụng thêm các dịch vụ đi kèm, ăn sáng, ăn tối...
+ - đăng ký các dịch vụ đi kèm trong giao diện ng dùng
+ - lúc checkout, ng nhân viên xuất hóa đơn gồm tiền phòng, tổng tiền dịch vụ đi kèm
+
+Đặt tổ chức sự kiện
+ - check tình trạng các phòng, check availability
