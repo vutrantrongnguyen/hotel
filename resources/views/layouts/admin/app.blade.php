@@ -16,7 +16,7 @@
                             <li><a href="/admin/checkin"><i class="fa fa-mail-reply"></i> Check in </a></li>
                             <li><a href="/admin/checkout"><i class="fa fa-mail-forward"></i> Check out </a></li>
                             <li><a href="/admin/service"><i class="fa fa-star"></i> Quản lý dịch vụ </a></li>
-
+                            <li><a href="/admin/room"><i class="fa fa-hospital-o"></i>Quản lý phòng</a></li>
                         </ul>
                     </div>
                 </div>

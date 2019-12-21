@@ -40,6 +40,8 @@ Route::group(['middleware' => ['auth', 'role'], 'role' => 'admin'], function () 
     Route::put('/admin/service/{id}/update', 'Admin\ServiceController@update');
     Route::delete('/admin/service/{id}/delete', 'Admin\ServiceController@delete');
     Route::post('/admin/service/save', 'Admin\ServiceController@save');
+
+    Route::get('/admin/room','Admin\RoomController@index');
 });
 
 Route::get('/cart', function () {
