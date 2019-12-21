@@ -72,8 +72,8 @@
                         <li class=""><a href="/" data-hover="Home">Trang chủ </a></li>
                         <li><a data-hover="Phòng ở" href="/accommodation">Phòng ở</a></li>
                         <li><a data-hover="Tổ chức sự kiện" href="/event">Tổ chức sự kiện</a></li>
-
-
+                        <li><a data-hover="Căn hộ" href="/apartment">Căn hộ</a></li>
+                        <li><a data-hover="Nhà hàng" href="/restaurant">Nhà hàng</a></li>
                     @if (Auth::guest())
                             <li><a href="{{ url('/login') }}">Đăng nhập</a></li>
                             <li><a href="{{ url('/register') }}">Đăng ký</a></li>
