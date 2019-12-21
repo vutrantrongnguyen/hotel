@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AccommodationController extends Controller
 {
     public function index()
     {
-        $tab = 2;
-        return view('accommodation.index', compact('tab'));
-
+        $rooms = DB::table('rooms')->where('type_id', '1')->get();
+        return view('accommodation.index')->with('rooms', $rooms);
     }
 }
