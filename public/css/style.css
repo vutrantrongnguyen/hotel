@@ -322,7 +322,7 @@ ul.cap1 li {
     margin-top: 4em;
 }
 .footer-section {
-	background-image: url("/images/slider-4.jpg");
+	background-image: url("../images/slider-4.jpg");
     background-size: 100vw;
     background-position: center center;
 }
