@@ -140,10 +140,12 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
+        Laravel\Socialite\SocialiteServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,
         Illuminate\Cache\CacheServiceProvider::class,
+        Illuminate\Foundation\Providers\ConsoleSupportServiceProvider::class,
         Illuminate\Foundation\Providers\ConsoleSupportServiceProvider::class,
         Illuminate\Cookie\CookieServiceProvider::class,
         Illuminate\Database\DatabaseServiceProvider::class,
@@ -199,6 +201,7 @@ return [
         'Auth' => Illuminate\Support\Facades\Auth::class,
         'Blade' => Illuminate\Support\Facades\Blade::class,
         'Bus' => Illuminate\Support\Facades\Bus::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Cache' => Illuminate\Support\Facades\Cache::class,
         'Config' => Illuminate\Support\Facades\Config::class,
         'Cookie' => Illuminate\Support\Facades\Cookie::class,
