@@ -1,6 +1,9 @@
 @extends('layouts.admin.app')
 @section('content')
     <div>
+        <a href="/admin/room/create" role="button" class="btn btn-primary">Tạo phòng mới</a>
+    </div>
+    <div>
         <div class="page-title">
             <div class="title_left">
                 <h2>Danh sách các phòng trong hệ thống </h2>
@@ -20,6 +23,7 @@
                         <th class="column-title">Giá</th>
                         <th class="column-title">Số phòng còn</th>
                         <th class="column-title">Tổng sổ phòng</th>
+                        <th class="column-title">Thao tác</th>
                     </tr>
                     </thead>
 
@@ -33,10 +37,19 @@
                             <td>{{$room->price}}</td>
                             <td>{{$room->available}}</td>
                             <td>{{$room->total}}</td>
+                            <td>
+                                <a href="/admin/room/{{$room->id}}/edit" class="btn btn-success" role="button">Sửa</a>
+                                <form action="/admin/room/{{$room->id}}/delete" method="POST">
+                                    {{csrf_field()}}
+                                    {{method_field('delete')}}
+                                    <button class="btn btn-danger" type="submit">Xóa</button>
+                                </form>
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
+                {{ $rooms->links() }}
             </div>
         </div>
     </div>

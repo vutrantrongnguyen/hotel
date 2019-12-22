@@ -42,6 +42,11 @@ Route::group(['middleware' => ['auth', 'role'], 'role' => 'admin'], function () 
     Route::post('/admin/service/save', 'Admin\ServiceController@save');
 
     Route::get('/admin/room','Admin\RoomController@index');
+    Route::get('/admin/room/create','Admin\RoomController@create');
+    Route::post('/admin/room/store','Admin\RoomController@store');
+    Route::delete('/admin/room/{id}/delete','Admin\RoomController@destroy');
+    Route::get('/admin/room/{id}/edit','Admin\RoomController@edit');
+    Route::put('/admin/room/{id}/update','Admin\RoomController@update');
 });
 
 Route::get('/cart', function () {
