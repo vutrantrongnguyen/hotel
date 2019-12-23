@@ -15,9 +15,14 @@ Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
 
 Route::get('/accommodation', 'AccommodationController@index');
+Route::get('/accommodation/{id}', 'AccommodationController@show');
 Route::get('/apartment', 'ApartmentController@index');
+Route::get('/apartment/{id}', 'ApartmentController@show');
 Route::get('/event', 'EventController@index');
+Route::get('/event/{id}', 'EventController@show');
 Route::get('/restaurant', 'RestaurantController@index');
+Route::get('/restaurant/{id}', 'RestaurantController@show');
+Route::get('/order/{room_id}', 'OrderController@getOrder');
 
 Route::post('/result', ['as' => 'postResult', 'uses' => 'HomeController@result']);
 Route::get('/order/{id}/{date_in}/{date_out}/{user_id}', ['as' => 'getOrder', 'uses' => 'HomeController@order']);
@@ -64,6 +69,7 @@ Route::get('/cart', [
 
 
 Route::post('/result', ['as'=>'postResult', 'uses'=>'HomeController@result']);
+
 Route::get('/order/{id}/{date_in}/{date_out}/{user_id}', ['as'=>'getOrder', 'uses'=>'HomeController@order']);
 Auth::routes();
 

@@ -1,20 +1,22 @@
 @extends('layouts.app')
 
 @section('navbar')
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-            <li ><a href="/" data-hover="Home">Trang chủ </a></li>
-            <li><a data-hover="Phòng ở" href="/accommodation">Phòng ở</a></li>
-            <li><a data-hover="Căn hộ" href="/apartment">Căn hộ</a></li>
-            <li><a data-hover="Tổ chức sự kiện" href="/event">Tổ chức sự kiện</a></li>
-            <li class="active"><a data-hover="Nhà hàng" href="/restaurant">Nhà hàng</a></li>
-
-
-        </ul>
-    </div><!-- /.navbar-collapse -->
 @endsection
 
 @section('content')
-Nhà hàng
+    <div class="container">
+        <div class="wel-grids">
+            @foreach($rooms as $room)
+                <div class="col-md-3 wel-grid">
+                    <a href="#"><img src="images/f1.jpg" class="img-responsive gray" alt=""/></a>
+                    <h4>{{$room->name}}</h4>
+                    <p>Decription: {{$room->description}}
+                    </p>
+                    <strong>Price: {{$room->price}}$</strong>
+                </div>
+            @endforeach
+            <div class="clearfix"></div>
+        </div>
+    </div>
 
 @endsection
