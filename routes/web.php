@@ -13,6 +13,8 @@
 
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
+Route::get('/login/google','Auth\LoginController@redirectToProvider')->name('google.login');
+Route::get('/callback','Auth\LoginController@handleProviderCallback');
 
 Route::get('/accommodation', 'AccommodationController@index');
 Route::get('/apartment', 'ApartmentController@index');
@@ -56,14 +58,14 @@ Route::get('/cart', [
 */
 
 
-Route::post('/result', ['as'=>'postResult', 'uses'=>'HomeController@result']);
-Route::get('/order/{id}/{date_in}/{date_out}/{user_id}', ['as'=>'getOrder', 'uses'=>'HomeController@order']);
+Route::post('/result', ['as' => 'postResult', 'uses' => 'HomeController@result']);
+Route::get('/order/{id}/{date_in}/{date_out}/{user_id}', ['as' => 'getOrder', 'uses' => 'HomeController@order']);
 Auth::routes();
 
 Route::get('service/{id}/index', [
-	'uses'=>'ServiceController@getIndex',
-	'as'=>'service.index'
-	]);
+    'uses' => 'ServiceController@getIndex',
+    'as' => 'service.index'
+]);
 
 
 Route::get('/add-to-cart/{id}', [

@@ -34,9 +34,12 @@ return [
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
-    'google' => [
-        'client_id'     => env('GOOGLE_CLIENT_ID'),
-        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-        'redirect'      => env('GOOGLE_REDIRECT')
-    ],
+//    'google' => [
+//        'client_id'     => env('GOOGLE_CLIENT_ID'),
+//        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+//        'redirect'      => env('GOOGLE_REDIRECT')
+//        'client_id' => '243235186177-opvkatfmdv87darh41kmfmp4grs142bo.apps.googleusercontent.com',
+//        'client_secret' => 'YGYDIp7igSNM6yxv28cJzNpM',
+//        'redirect' => 'http://hotel.com/callback'
+//    ],
 ];

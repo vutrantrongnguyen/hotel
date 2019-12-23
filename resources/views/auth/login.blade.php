@@ -50,6 +50,7 @@
 
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
+
                                 <button type="submit" class="btn btn-primary">
                                     Đăng nhập
                                 </button>
@@ -60,6 +61,9 @@
                             </div>
                         </div>
                     </form>
+                    <a href="{{ route('google.login')}}">
+                        <button type="button" class="btn btn-primary btn-block">Đăng nhập bằng Google</button>
+                    </a>
                 </div>
             </div>
         </div>
