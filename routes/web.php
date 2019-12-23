@@ -17,9 +17,14 @@ Route::get('/login/google','Auth\LoginController@redirectToProvider')->name('goo
 Route::get('/callback','Auth\LoginController@handleProviderCallback');
 
 Route::get('/accommodation', 'AccommodationController@index');
+Route::get('/accommodation/{id}', 'AccommodationController@show');
 Route::get('/apartment', 'ApartmentController@index');
+Route::get('/apartment/{id}', 'ApartmentController@show');
 Route::get('/event', 'EventController@index');
+Route::get('/event/{id}', 'EventController@show');
 Route::get('/restaurant', 'RestaurantController@index');
+Route::get('/restaurant/{id}', 'RestaurantController@show');
+Route::get('/order/{room_id}', 'OrderController@getOrder');
 
 Route::post('/result', ['as' => 'postResult', 'uses' => 'HomeController@result']);
 Route::get('/order/{id}/{date_in}/{date_out}/{user_id}', ['as' => 'getOrder', 'uses' => 'HomeController@order']);
@@ -42,6 +47,13 @@ Route::group(['middleware' => ['auth', 'role'], 'role' => 'admin'], function () 
     Route::put('/admin/service/{id}/update', 'Admin\ServiceController@update');
     Route::delete('/admin/service/{id}/delete', 'Admin\ServiceController@delete');
     Route::post('/admin/service/save', 'Admin\ServiceController@save');
+
+    Route::get('/admin/room','Admin\RoomController@index');
+    Route::get('/admin/room/create','Admin\RoomController@create');
+    Route::post('/admin/room/store','Admin\RoomController@store');
+    Route::delete('/admin/room/{id}/delete','Admin\RoomController@destroy');
+    Route::get('/admin/room/{id}/edit','Admin\RoomController@edit');
+    Route::put('/admin/room/{id}/update','Admin\RoomController@update');
 });
 
 Route::get('/cart', function () {
@@ -60,6 +72,7 @@ Route::get('/cart', [
 
 Route::post('/result', ['as' => 'postResult', 'uses' => 'HomeController@result']);
 Route::get('/order/{id}/{date_in}/{date_out}/{user_id}', ['as' => 'getOrder', 'uses' => 'HomeController@order']);
+
 Auth::routes();
 
 Route::get('service/{id}/index', [

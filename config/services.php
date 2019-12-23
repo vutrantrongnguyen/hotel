@@ -42,4 +42,10 @@ return [
 //        'client_secret' => 'YGYDIp7igSNM6yxv28cJzNpM',
 //        'redirect' => 'http://hotel.com/callback'
 //    ],
+    'facebook' => [
+        'client_id' => '746301742555862',
+        'client_secret' => '70403a1ff1d1421ea7ea2c8bc276f473',
+        'redirect' => 'http://www.hotel.test/callback/facebook',
+    ],
+
 ];
