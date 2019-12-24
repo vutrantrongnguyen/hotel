@@ -21,16 +21,28 @@
                 <p><strong>Price: {{$room->price}}$</strong></p>
                 @if($room->available == true)
                     <strong>Status: Còn phòng</strong>
+                    <p>Description: {{$room->description}}</p>
+                    <br><br>
+                    <div>
+                        <a href="/order/{{$room->id}}">
+{{--                            <a href="{!! URL::route('/', [$item_room_available["id"], $date_in, $date_out, 1]) !!}">--}}
+                            <button type="button" class="btn btn-primary">Đặt phòng</button>
+                        </a>
+{{--                        <form action="/order/room">--}}
+{{--                            <button type="button" class="btn btn-primary">Đặt phòng</button>--}}
+{{--                        </form>--}}
+                    </div>
                 @else
                     <strong>Status: Đã hết phòng</strong>
+                    <p>Description: {{$room->description}}</p>
+                    <br><br>
+                    <div>
+                        <a href="/order/{{$room->id}}">
+                            <button type="button" class="btn btn-primary" disabled="true">Đặt phòng</button>
+                        </a>
+                    </div>
                 @endif
-                <p>Description: {{$room->description}}</p>
-                <br><br>
-                <div>
-                    <a href="/order/{{$room->id}}">
-                        <button type="button" class="btn btn-primary">Đặt phòng</button>
-                    </a>
-                </div>
+
             </div>
         </div>
     </div>

@@ -30,7 +30,9 @@
                     <textarea class="form-control" id="description" placeholder="..." name="description">
                         {{$room->description}}
                     </textarea>
+
                 </div>
+
                 <div class="form-group">
                     <label for="price">Giá</label>
                     <input type="number" class="form-control" id="price" placeholder="0" name="price"
@@ -51,3 +53,13 @@
         </div>
     </div>
 @endsection
+@section('miniscript')
+{{--    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>--}}
+{{--    <script>--}}
+{{--        CKEDITOR.replace( 'description' );--}}
+{{--    </script>--}}
+    <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace( 'description' );
+    </script>
+    @endsection

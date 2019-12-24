@@ -17,3 +17,6 @@
         @yield('content')
     </div>
 @endsection
+@section('script')
+@yield('miniscript')
+    @endsection

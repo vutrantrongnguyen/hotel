@@ -27,6 +27,7 @@ class HomeController extends Controller
         $date_out = date_format($dateout, 'Y-m-d');
         $room_available = Room::select('id', 'type_id', 'name', 'description', 'price', 'available', 'total')
             ->where('available', 1)->where('total', '>=', $request->sltNumber)->where('type_id', $request->sltType)->get()->toArray();
+//        dd($room_available);
         //get phong da dat nhung out < in nhap
         $room_check_time = array();
         //get list order co out < in nhap
@@ -52,6 +53,28 @@ class HomeController extends Controller
 //        print_r($room_check_time);
 //        echo '</pre>';
         return view('home.result', compact('room_available', 'room_check_time', 'date_in', 'date_out'));
+    }
+
+    public function orderRoom(OrderRequest $request)
+    {
+        //get phong dang co san
+
+        $datein = new DateTime($request->txtDateIn);
+        $date_in = date_format($datein, 'Y-m-d');
+        $dateout = new DateTime($request->txtDateOut);
+        $date_out = date_format($dateout, 'Y-m-d');
+        $order = new Order();
+        $order->room_id = $request->room_id;
+        $order->begin = $date_in;
+        $order->end = $date_out;
+        $order->user_id = Auth::user()->id;
+        $order->status = 0;
+        $order->save();
+        $room = Room::find($request->room_id)->first();
+        $room->available = 0;
+        dd($room);
+        $room->save();
+        return redirect()->to('/')->with(['flash_level' => 'success', 'flash_message' => 'Success !! Complete Add Order Room']);
     }
 
     public function order($id, $date_in, $date_out, $user_id)

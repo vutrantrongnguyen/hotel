@@ -34,18 +34,21 @@ return [
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
-//    'google' => [
+    'google' => [
 //        'client_id'     => env('GOOGLE_CLIENT_ID'),
 //        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
 //        'redirect'      => env('GOOGLE_REDIRECT')
-//        'client_id' => '243235186177-opvkatfmdv87darh41kmfmp4grs142bo.apps.googleusercontent.com',
-//        'client_secret' => 'YGYDIp7igSNM6yxv28cJzNpM',
-//        'redirect' => 'http://hotel.com/callback'
-//    ],
+        'client_id' => '243235186177-opvkatfmdv87darh41kmfmp4grs142bo.apps.googleusercontent.com',
+        'client_secret' => 'YGYDIp7igSNM6yxv28cJzNpM',
+        'redirect' => 'http://hotel.com/callback'
+    ],
     'facebook' => [
-        'client_id' => '746301742555862',
-        'client_secret' => '70403a1ff1d1421ea7ea2c8bc276f473',
-        'redirect' => 'http://www.hotel.test/callback/facebook',
+        'client_id' => env('FACEBOOK_ID'),
+        'client_secret' => env('FACEBOOK_SECRET'),
+        'redirect' => env('FACEBOOK_URL'),
+//        'client_id' => '746301742555862',
+//        'client_secret' => '70403a1ff1d1421ea7ea2c8bc276f473',
+//        'redirect' => '/auth/facebook/callback',
     ],
 
 ];

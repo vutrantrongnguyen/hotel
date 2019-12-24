@@ -50,7 +50,7 @@ class LoginController extends Controller
         return Socialite::driver('google')->with(
             ['client_id' => '243235186177-opvkatfmdv87darh41kmfmp4grs142bo.apps.googleusercontent.com'],
             ['client_secret' => 'YGYDIp7igSNM6yxv28cJzNpM'],
-            ['redirect' => 'http://hotel.com/callback'])->redirect();
+            ['redirect' => 'http://127.0.0.1:8000/callback'])->redirect();
     }
 
     public function handleProviderCallback()
@@ -76,5 +76,44 @@ class LoginController extends Controller
         }
 
     }
+    public function redirectToProviderF()
+    {
+        return Socialite::driver('facebook')->redirect();
+    }
 
+    /**
+     * Obtain the user information from facebook.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function handleProviderCallbackF()
+    {
+        $user = Socialite::driver('facebook')->user();
+
+        $authUser = $this->findOrCreateUser($user);
+
+        // Chỗ này để check xem nó có chạy hay không
+        // dd($user);
+
+        Auth::login($authUser, true);
+
+        return redirect()->route('home');
+    }
+
+    private function findOrCreateUser($facebookUser){
+        $authUser = \App\User::where('provider_id', $facebookUser->id)->first();
+
+        if($authUser){
+            return $authUser;
+        }
+
+        return User::create([
+            'name' => $facebookUser->name,
+            'password' => $facebookUser->token,
+            'email' => $facebookUser->email,
+            'provider_id' => $facebookUser->id,
+            'provider' => $facebookUser->id,
+            'role' => 'staff',
+        ]);
+    }
 }

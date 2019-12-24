@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Hanoi Valkyria</title>
+    <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
 
     <script src="{!! asset('js/jquery-1.12.4.js') !!}"></script>
     <script src="{!! asset('js/jquery.min.js') !!}"></script>
@@ -101,5 +102,6 @@
 <!--footer-->
 <script src="js/jquery-ui.js"></script>
 <script src="{{ url('js/myscript.js') }}"></script>
+@yield('script')
 </body>
 </html>

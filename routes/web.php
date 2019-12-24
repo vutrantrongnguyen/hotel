@@ -16,6 +16,10 @@ Route::get('/home', 'HomeController@index');
 Route::get('/login/google','Auth\LoginController@redirectToProvider')->name('google.login');
 Route::get('/callback','Auth\LoginController@handleProviderCallback');
 
+Route::get('auth/facebook', 'Auth\LoginController@redirectToProviderF')->name('facebook.login');
+Route::get('auth/facebook/callback', 'Auth\LoginController@handleProviderCallbackF');
+
+
 Route::get('/accommodation', 'AccommodationController@index');
 Route::get('/accommodation/{id}', 'AccommodationController@show');
 Route::get('/apartment', 'ApartmentController@index');
@@ -27,6 +31,8 @@ Route::get('/restaurant/{id}', 'RestaurantController@show');
 Route::get('/order/{room_id}', 'OrderController@getOrder');
 
 Route::post('/result', ['as' => 'postResult', 'uses' => 'HomeController@result']);
+//Route::post('/order/room', ['as' => 'postResult', 'uses' => 'HomeController@orderRoom']);
+Route::post('/order/room','HomeController@orderRoom');
 Route::get('/order/{id}/{date_in}/{date_out}/{user_id}', ['as' => 'getOrder', 'uses' => 'HomeController@order']);
 Auth::routes();
 
@@ -70,7 +76,6 @@ Route::get('/cart', [
 */
 
 
-Route::post('/result', ['as' => 'postResult', 'uses' => 'HomeController@result']);
 Route::get('/order/{id}/{date_in}/{date_out}/{user_id}', ['as' => 'getOrder', 'uses' => 'HomeController@order']);
 
 Auth::routes();

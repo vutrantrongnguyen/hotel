@@ -77,12 +77,12 @@
                     <input type="hidden" name="_token" value="{!! csrf_token() !!}"/>
                     <div class="form-group">
                         <label>Check In</label>
-                        <input id="datepickerin" class="form-control" name="txtDateIn"
+                        <input id="datepickerin" class="form-control" name="txtDateIn" type="date"
                                placeholder="Please Enter Date Input"/>
                     </div>
                     <div class="form-group">
                         <label>Check Out</label>
-                        <input id="datepickerout" class="form-control" name="txtDateOut"
+                        <input id="datepickerout" class="form-control" name="txtDateOut" type="date"
                                placeholder="Please Enter Date Input"/>
                     </div>
 
